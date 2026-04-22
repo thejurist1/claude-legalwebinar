@@ -15,11 +15,16 @@
 <meta property="og:url" content="https://thejurist1.github.io/claude-legalwebinar/">
 <meta property="og:site_name" content="Claude for Legal Webinar Deck">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://thejurist1.github.io/claude-legalwebinar/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Claude for Legal — From Chatbot to Workflow Engine">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Claude for Legal — From Chatbot to Workflow Engine">
 <meta name="twitter:description" content="Anthropic 공식 웨비나 (2026.04.21, 59:12) 2만 명이 모인 세션을 15장 인터랙티브 덱으로.">
+<meta name="twitter:image" content="https://thejurist1.github.io/claude-legalwebinar/og-image.png">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css">
 <style>
@@ -982,18 +987,187 @@ html,body{
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 900px){
+  /* Hide desktop-only chrome */
   .chrome,.pager,.hint{display:none}
-  .slide{padding:4vh 5vw}
-  .s-cover .cover-grid{grid-template-columns:1fr;grid-template-rows:1.4fr .6fr}
-  .s-pillars .pillars-grid{grid-template-columns:1fr 1fr}
-  .s-surfaces .tri-surface{grid-template-columns:1fr}
-  .s-halluc .defense{grid-template-columns:1fr}
-  .s-korea .compare{grid-template-columns:1fr}
-  .s-infra .infra-grid{grid-template-columns:1fr}
-  .s-ladder .ladder{grid-template-columns:1fr 1fr}
-  .s-andrew .story-layout{grid-template-columns:1fr}
-  .s-pamela .story{grid-template-columns:1fr}
-  .s-next .next-steps{grid-template-columns:1fr}
+
+  /* Slide container: allow vertical scroll, top-align content */
+  .slide{
+    padding:6vh 5vw 9vh;
+    justify-content:flex-start;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  /* Universal typography overrides */
+  .slide-title{font-size:26px !important; line-height:1.22; letter-spacing:-.02em}
+  .slide-subtitle{font-size:15px !important}
+  .eyebrow{font-size:10px; margin-bottom:14px; letter-spacing:.22em}
+  .eyebrow::before{width:18px}
+  .lede{font-size:14px !important; line-height:1.55; max-width:none !important}
+  .big-number{font-size:72px !important; line-height:1}
+  .big-number .unit{font-size:13px !important}
+
+  /* Cover */
+  .s-cover .cover-grid{grid-template-columns:1fr !important; grid-template-rows:auto auto; gap:20px}
+  .s-cover .cover-hero{font-size:52px !important; line-height:.95}
+  .s-cover .cover-hero .ko{font-size:16px !important; margin-top:10px}
+  .s-cover .cover-meta{gap:6px}
+  .s-cover .cover-meta span{font-size:10.5px}
+  .s-cover .cover-right{min-height:auto; padding:24px 20px}
+  .s-cover .dateblock{font-size:40px !important; line-height:1}
+  .s-cover .dateblock .sub{font-size:10px}
+  .s-cover .author{font-size:11px}
+  .s-cover .author .name{font-size:13px}
+  .s-cover .tag{font-size:10px}
+
+  /* Scale */
+  .s-scale .big-number{font-size:64px !important}
+  .s-scale .tri{grid-template-columns:1fr !important; gap:14px}
+  .s-scale .tri h4{font-size:12px}
+  .s-scale .tri p{font-size:13px; line-height:1.5}
+  .s-scale .quote-block{padding:20px; margin-top:20px}
+  .s-scale .quote-block q{font-size:15px; line-height:1.5}
+  .s-scale .quote-block .attr{font-size:11px}
+
+  /* Paradigm Shift */
+  .s-shift .split{flex-direction:column !important; gap:14px; align-items:stretch !important}
+  .s-shift .side{width:100% !important; max-width:none !important; padding:18px}
+  .s-shift .arrow{transform:rotate(90deg); font-size:30px; margin:0 auto}
+  .s-shift .year{font-size:12px; letter-spacing:.1em}
+  .s-shift .question{font-size:15px; line-height:1.4}
+
+  /* Four Pillars */
+  .s-pillars .pillars-grid{grid-template-columns:1fr !important; gap:14px}
+  .s-pillars .pillar{padding:18px}
+  .s-pillars .pillar .num{font-size:9.5px}
+  .s-pillars .pillar h3{font-size:17px; margin:10px 0 4px}
+  .s-pillars .pillar .en{font-size:11px; margin-bottom:8px}
+  .s-pillars .pillar p{font-size:13px; line-height:1.55}
+  .s-pillars .pillar .meta{font-size:9.5px; margin-top:10px}
+
+  /* Three Surfaces */
+  .s-surfaces .tri-surface{grid-template-columns:1fr !important; gap:14px}
+  .s-surfaces .surface{padding:18px}
+  .s-surfaces .surface .badge{font-size:9.5px}
+  .s-surfaces .surface h3{font-size:20px}
+  .s-surfaces .surface .en-title{font-size:12px; margin-bottom:10px}
+  .s-surfaces .surface p{font-size:13px; line-height:1.55}
+  .s-surfaces .surface .tagline{font-size:12px; margin-top:12px}
+
+  /* Live Demos */
+  .s-demos .demo-flow{gap:0}
+  .s-demos .demo-row{
+    display:grid !important;
+    grid-template-columns:44px 1fr !important;
+    gap:10px; padding:16px 0;
+    border-bottom:1px solid rgba(20,20,19,.08);
+  }
+  .s-demos .demo-num{font-size:22px; align-self:start}
+  .s-demos .demo-title-ko{font-size:14px; font-weight:var(--w-bold)}
+  .s-demos .demo-title-en{font-size:10.5px}
+  .s-demos .demo-desc{grid-column:1/-1; font-size:13px; line-height:1.55; margin-top:8px}
+  .s-demos .demo-tool{grid-column:1/-1; margin-top:8px; font-size:9.5px; padding:4px 10px; display:inline-block; justify-self:start; width:auto}
+
+  /* Andrew Story */
+  .s-andrew .story-layout{grid-template-columns:1fr !important; gap:20px}
+  .s-andrew .narrative{font-size:14px; line-height:1.6}
+  .s-andrew .outcome{font-size:15px; padding:14px; margin-top:14px}
+  .s-andrew .vs-block{padding:20px}
+  .s-andrew .vs-num{font-size:48px; line-height:1}
+  .s-andrew .vs-label{font-size:11px; margin:6px 0}
+  .s-andrew .vs-desc{font-size:12px; line-height:1.5}
+
+  /* Automation Ladder */
+  .s-ladder .ladder{grid-template-columns:1fr 1fr !important; gap:12px}
+  .s-ladder .step{padding:14px}
+  .s-ladder .dot{width:30px; height:30px; font-size:12px; margin-bottom:10px}
+  .s-ladder .step .en{font-size:10px; margin-bottom:4px}
+  .s-ladder .step h4{font-size:13px; margin-bottom:6px}
+  .s-ladder .step p{font-size:11.5px; line-height:1.45}
+
+  /* Pamela */
+  .s-pamela .story{grid-template-columns:1fr !important; gap:18px}
+  .s-pamela .newspaper{padding:18px}
+  .s-pamela .np-headline{font-size:17px; margin-bottom:10px}
+  .s-pamela .np-body{font-size:13px; line-height:1.55}
+  .s-pamela .np-date{font-size:10px; margin-top:10px}
+  .s-pamela .tf-row{
+    display:grid !important;
+    grid-template-columns:auto auto 1fr !important;
+    align-items:center; gap:8px; padding:10px 0;
+  }
+  .s-pamela .tf-before,.s-pamela .tf-after{font-size:20px}
+  .s-pamela .tf-arrow{font-size:16px}
+  .s-pamela .tf-label{font-size:11px; line-height:1.4; grid-column:1/-1}
+
+  /* Security / Privilege */
+  .s-security .sec-layout,.s-security .defense,.s-security .sec-grid{grid-template-columns:1fr !important; gap:12px}
+  .s-security .sec-card{padding:16px}
+  .s-security .sec-card h4{font-size:14px}
+  .s-security .sec-card p{font-size:12.5px; line-height:1.5}
+  .s-security .privilege-quote{padding:16px; font-size:14px}
+
+  /* Hallucination */
+  .s-halluc .defense{grid-template-columns:1fr !important; gap:14px}
+  .s-halluc .def-card{padding:16px}
+  .s-halluc .def-card h4{font-size:14px}
+  .s-halluc .def-card .en{font-size:10.5px}
+  .s-halluc .def-card p{font-size:12.5px; line-height:1.5}
+  .s-halluc .warning-number{font-size:48px !important}
+
+  /* Manager */
+  .s-manager .big-q{font-size:20px !important; line-height:1.35 !important; max-width:none !important}
+
+  /* Antfooding (s-korea) */
+  .s-korea .compare{grid-template-columns:1fr !important; gap:18px}
+  .s-korea .col{padding:18px}
+  .s-korea .col-title{font-size:11px; margin-bottom:14px}
+  .s-korea .item{margin-bottom:12px; gap:10px}
+  .s-korea .item-num{font-size:18px}
+  .s-korea .item-body{font-size:12.5px; line-height:1.5}
+  .s-korea .item-body strong{font-size:13px}
+
+  /* How to Start (s-infra) */
+  .s-infra .infra-grid{grid-template-columns:1fr !important; gap:16px}
+  .s-infra .infra-col{padding:18px}
+  .s-infra .infra-col h3{font-size:14px; margin-bottom:12px}
+  .s-infra .infra-item{margin-bottom:10px; gap:10px}
+  .s-infra .infra-check{width:24px; height:24px; font-size:12px; flex-shrink:0}
+  .s-infra .infra-text{font-size:12.5px; line-height:1.5}
+  .s-infra .infra-text strong{font-size:13px; display:block; margin-bottom:2px}
+
+  /* Closing */
+  .s-next .big-q{font-size:19px !important; line-height:1.4 !important; max-width:none !important}
+  .s-next .big-q em{font-size:inherit !important}
+  .s-next .big-q .ko{font-size:14px !important; margin-top:14px}
+  .s-next .next-steps{grid-template-columns:1fr !important; gap:14px; margin-top:20px}
+  .s-next .next-card{padding:18px}
+  .s-next .next-card h4{font-size:15px; margin:8px 0 6px}
+  .s-next .next-card p{font-size:12.5px; line-height:1.55}
+  .s-next .footer{flex-direction:column; gap:6px; font-size:9.5px; text-align:center; padding-top:20px}
+}
+
+@media (max-width: 480px){
+  /* Even tighter for small phones */
+  .slide{padding:5.5vh 4.5vw 8vh}
+  .slide-title{font-size:22px !important; line-height:1.25}
+  .eyebrow{font-size:9.5px; margin-bottom:12px}
+
+  .s-cover .cover-hero{font-size:44px !important}
+  .s-cover .cover-hero .ko{font-size:15px !important}
+  .s-cover .dateblock{font-size:34px !important}
+  .big-number{font-size:58px !important}
+  .s-scale .big-number{font-size:52px !important}
+
+  .s-andrew .vs-num{font-size:40px}
+  .s-ladder .ladder{grid-template-columns:1fr !important; gap:10px}
+  .s-ladder .step{display:grid; grid-template-columns:42px 1fr; gap:10px; align-items:start}
+  .s-ladder .dot{margin-bottom:0}
+  .s-ladder .step > div:not(.dot), .s-ladder .step > h4, .s-ladder .step > p{grid-column:2}
+  .s-ladder .step h4{margin-top:2px}
+  .s-halluc .warning-number{font-size:38px !important}
+  .s-manager .big-q{font-size:17px !important}
+  .s-next .big-q{font-size:16px !important}
 }
 </style>
 </head>
@@ -1751,6 +1925,8 @@ html,body{
     setTimeout(()=>slides[idx].classList.remove('prev'),750);
     idx = next;
     slides[idx].classList.add('active');
+    /* Reset scroll so mobile users always start at top of new slide */
+    slides[idx].scrollTop = 0;
     curEl.textContent = String(idx+1).padStart(2,'0');
     progress.style.width = ((idx+1)/total*100)+'%';
   }
@@ -1766,15 +1942,22 @@ html,body{
     }
   });
 
-  /* touch nav */
-  let tx=null;
-  document.addEventListener('touchstart',(e)=>{tx=e.changedTouches[0].clientX},{passive:true});
+  /* touch nav — horizontal swipe only, let vertical be a scroll */
+  let tx=null, ty=null;
+  document.addEventListener('touchstart',(e)=>{
+    tx=e.changedTouches[0].clientX;
+    ty=e.changedTouches[0].clientY;
+  },{passive:true});
   document.addEventListener('touchend',(e)=>{
     if(tx===null) return;
     const dx = e.changedTouches[0].clientX - tx;
-    if(dx < -50) go(idx+1);
-    else if(dx > 50) go(idx-1);
-    tx=null;
+    const dy = e.changedTouches[0].clientY - ty;
+    /* Require horizontal distance > vertical distance, and min 50px */
+    if(Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50){
+      if(dx < 0) go(idx+1);
+      else go(idx-1);
+    }
+    tx=null; ty=null;
   },{passive:true});
 
   /* click navigation */
